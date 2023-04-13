@@ -1,0 +1,72 @@
+// Variables for media query breakpoints
+$mobile-min-width: 320px;
+$tablet-width: 768px;
+$fromTablet: 769px;
+$tabletMax: 1024px;
+$screenS: 1025px;
+$screenM: 1440px;
+$screenUpM: 1441px;
+$desktop-m-width: 1919px;
+$desktop-l-width: 1920px;
+
+// Mixin for different screen sizes
+@mixin phone($deviceType) {
+  @if $deviceType == phone {
+    @media only screen and (min-width: $mobile-min-width) {
+      @content;
+    }
+  }
+}
+@mixin mobile($deviceType) {
+  @if $deviceType == mobile {
+    @media only screen and (min-width: $mobile-min-width) and (max-width: $tablet-width) {
+      @content;
+    }
+  }
+}
+@mixin tablet($deviceType) {
+  @if $deviceType == tablet {
+    @media only screen and (max-width: $tablet-width) {
+      @content;
+    }
+  }
+}
+@mixin tablet($deviceType) {
+  @if $deviceType == tabletMax {
+    @media only screen and (max-width: $tabletMax) {
+      @content;
+    }
+  }
+}
+@mixin beforeSDesktop($deviceType) {
+  @if $deviceType==beforeD {
+    @media screen and (min-width: $tabletMax) {
+      @content;
+    }
+  }
+}
+
+@mixin maxTablet($deviceType) {
+  @if $deviceType == lTablet {
+    @media screen and (max-width: $tabletMax) {
+      @content;
+    }
+  }
+}
+
+@mixin desktop($deviceType) {
+  @if $deviceType == desktop {
+    @media screen and (min-width: $fromTablet) and (max-width: $tabletMax) {
+      @content;
+    }
+  }
+}
+
+//mixin For Desktop M
+@mixin ForDesktopM($deviceType) {
+  @if $deviceType == desktopS {
+    @media only screen and (min-width: $screenS) and (max-width: $screenM) {
+      @content;
+    }
+  }
+}

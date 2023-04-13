@@ -1,0 +1,680 @@
+@import "./mediaqueries";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 9rem;
+}
+
+html::-webkit-scrollbar {
+  width: $fontPrimary;
+}
+
+html::-webkit-scrollbar-track {
+  background: #111;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  z-index: 1000;
+  background: $white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 5.6rem 13.04%;
+  @include mobile(mobile) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @include tablet(tablet) {
+    padding: 5rem 7%;
+  }
+  @include ForDesktopM(desktopS) {
+    padding: 5rem 5%;
+  }
+
+  @include desktop(desktop) {
+    padding: 3rem 10%;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 25.5px;
+    width: 207px;
+    @include ForDesktopM(desktopS) {
+      width: 160px;
+      gap: 10px;
+    }
+    @include desktop(desktop) {
+      width: 160px;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    @include mobile(mobile) {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      text-transform: uppercase;
+      color: $secondary;
+      font-size: $logoSize;
+      font-weight: $bold;
+      line-height: $logoheight;
+      @include ForDesktopM(desktopS) {
+        font-size: $fontPrimary;
+      }
+      @include desktop(desktop) {
+        font-size: $lightFont;
+      }
+    }
+    img {
+      width: 61.5px;
+
+      @include ForDesktopM(desktopS) {
+        width: 50px;
+      }
+      @include desktop(desktop) {
+        width: 40px;
+      }
+
+      @include tablet(tablet) {
+        width: 50px;
+      }
+    }
+  }
+
+  .navbar a {
+    position: relative;
+    font-size: $fontPrimary;
+    color: $secondary;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 2.5rem;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+
+      bottom: -15px;
+      left: 50%;
+      width: 0%;
+      height: 3px;
+      background-color: $primary;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &::before {
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      transform: translateX(-50%);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 50%;
+    }
+
+    @include tablet(tablet) {
+      margin: 2rem;
+      font-size: $lightFont;
+      font-weight: $regular;
+      display: block;
+      color: $white;
+    }
+
+    @include desktop(desktop) {
+      font-weight: $bold;
+      font-size: 10px;
+    }
+
+    @include mobile(mobile) {
+      display: none;
+      margin: 1rem;
+      font-size: $lightFont;
+      font-weight: $regular;
+    }
+
+    @include ForDesktopM(desktopS) {
+      font-size: $lightFont;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.navbar {
+  @include mobile(mobile) {
+    display: none;
+  }
+
+  &__search {
+    position: relative;
+    width: 210px;
+    border-radius: 4px;
+    box-shadow: 0px 1px $border;
+    @include mobile(mobile) {
+      display: none;
+    }
+    @include ForDesktopM(desktopS) {
+      width: 170px;
+    }
+
+    @include desktop(desktop) {
+      display: none;
+    }
+
+    &__txt {
+      font-size: $smFont;
+      line-height: $smHeight;
+      color: $secondary;
+      font-weight: $regular;
+      padding: 11px 2px;
+      margin-right: 5px;
+      @include ForDesktopM(desktopS) {
+        width: 140px;
+      }
+      @include mobile(mobile) {
+        display: none;
+      }
+    }
+
+    &:focus-within {
+      border-color: $primary;
+      box-shadow: 1px 1px 1px 0 #ef55553f;
+    }
+    &__btn {
+      background-color: $white;
+      color: $primary;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
+// ---------- Main  Section Starts------------
+
+.home {
+  padding: 0 140px;
+  @include ForDesktopM(desktopS) {
+    padding: 0 43px;
+  }
+  @include desktop(desktop) {
+    padding: 0 43px;
+  }
+  @include mobile(mobile) {
+    padding: 0 10px;
+  }
+}
+
+.home {
+  position: relative;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(67, 26, 26, 0) 0%,
+      #431a1ac7 100%
+    ),
+    url(../../images/mainImage.png);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  // min-height: 80vh;
+  min-height: 770px;
+  width: 88.5%;
+  @include mobile(mobile) {
+    min-height: 520px;
+    width: 100%;
+  }
+  @include ForDesktopM(desktopS) {
+    width: 95%;
+    min-height: 700px;
+  }
+  @include desktop(desktop) {
+    min-height: 650px;
+  }
+  &__content {
+    text-align: left;
+    margin-top: $mtop;
+    @include ForDesktopM(desktopS) {
+      margin-top: $mgtop;
+    }
+    @include desktop(desktop) {
+      margin-top: 2rem;
+    }
+    @include mobile(mobile) {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    &__header {
+      text-transform: uppercase;
+      font-weight: $bold;
+      color: $white;
+      -webkit-text-stroke: 0.1rem $white;
+      font-size: $mainHeadline;
+      display: block;
+      margin-bottom: $mbott;
+      @include ForDesktopM(desktopS) {
+        font-size: $mainHeadlineM;
+      }
+      @include desktop(desktop) {
+        font-size: $mainHeadlineM;
+      }
+      @include mobile(mobile) {
+        font-size: 24px;
+      }
+    }
+    &__paragraph {
+      font-size: $lightFont;
+      line-height: $smHeight;
+      font-weight: $regular;
+      color: $white;
+      max-width: 736px;
+      margin-bottom: 27px;
+      opacity: 0.7;
+      @include ForDesktopM(desktopS) {
+        max-width: 500px;
+        font-size: 13px;
+      }
+      @include desktop(desktop) {
+        max-width: 500px;
+      }
+      @include mobile(mobile) {
+        font-size: 13px;
+      }
+    }
+  }
+  &__footer {
+    position: absolute;
+    left: 10;
+    bottom: -10px;
+    height: 10px;
+    background-color: $secondary;
+    width: 98%;
+  }
+  &__footer:focus {
+    box-shadow: 1px 0 3px 1px $secondary;
+  }
+}
+// ---------- Main Section Ends----------------
+// ---------Services Section Starts------------
+
+.services {
+  display: -webkit-box;
+  display: -ms-flexbox;
+
+  padding: 8.4rem 13.04% 15.6rem 13.04%;
+
+  @include tablet(tablet) {
+    padding: 8.4rem 7% 12rem 7%;
+  }
+  @include ForDesktopM(desktopS) {
+    padding: 7rem 5% 10rem 5%;
+  }
+
+  @include desktop(desktop) {
+    padding: 3rem 10%;
+  }
+  &__heading {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $thirdHeadline;
+    line-height: $bgHeight;
+
+    color: $black;
+    margin-top: 1rem;
+    margin-bottom: 7rem;
+    @include mobile(mobile) {
+      font-size: $lightFont;
+      margin-bottom: 2rem;
+    }
+  }
+  &__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: 3.7rem;
+    @include mobile(mobile) {
+      flex-direction: column;
+    }
+    &__item {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0.8; /* Set initial opacity */
+      transition: opacity 0.2s ease-in-out;
+      &:hover {
+        opacity: 1; /* Change opacity on hover */
+        box-shadow: 0 3px 3px 1px $border;
+        transition: 0.2s;
+        border-radius: 12px;
+      }
+    }
+
+    &__img {
+      margin-bottom: 30px;
+      width: 150px;
+      height: 160px;
+      border-radius: 50%;
+      background-color: $border;
+      box-shadow: 0 8px 4px #2b325221;
+      &:hover {
+        box-shadow: 0 8px 4px #2b325238;
+      }
+    }
+  }
+  h3 {
+    font-size: $servicesSize;
+    line-height: 4.1rem;
+    margin: 0 auto;
+    cursor: pointer;
+    @include mobile(mobile) {
+      font-size: 20px;
+    }
+    &:hover {
+      color: #ef5555;
+    }
+  }
+
+  svg {
+    margin: 40px auto;
+    cursor: pointer;
+  }
+}
+
+// ---------Services Section Ends------------
+
+//---------Peojects Section Starts----
+.projects {
+  height: 940px;
+  padding-left: 13.04%;
+  background-color: $bg-light;
+
+  @include tablet(tablet) {
+    padding-left: 7%;
+  }
+  @include ForDesktopM(desktopS) {
+    padding-left: 5%;
+  }
+
+  @include desktop(desktop) {
+    padding-left: 10%;
+  }
+  &__box {
+    overflow: hidden;
+  }
+}
+
+.projects__box__slider {
+  display: flex;
+  gap: 50px;
+  flex-wrap: nowrap;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  @include mobile(mobile) {
+    gap: 20px;
+  }
+}
+
+.projects__box__item {
+  position: relative;
+  flex: 0 0 auto;
+  width: 44rem;
+  height: 56rem;
+  overflow: hidden;
+  &__content {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: absolute;
+    bottom: 50px;
+    margin-left: 4rem;
+    h5 {
+      font-size: $servicesSize;
+      line-height: 4.1rem;
+      color: $white;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    span {
+      font-size: $smFont;
+      font-weight: $regular;
+      color: #ffffff;
+    }
+  }
+}
+
+.image1,
+.image2,
+.image3,
+.image4 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.image1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(67, 26, 26, 0) 0%,
+      #431a1ac7 100%
+    ),
+    url(../../images/slider1.png);
+}
+
+.image2 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(67, 26, 26, 0) 0%,
+      #431a1ac7 100%
+    ),
+    url(../../images/slider2.png);
+}
+
+.image3 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(67, 26, 26, 0) 0%,
+      #431a1ac7 100%
+    ),
+    url(../../images/slider3.png);
+}
+
+.image4 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(67, 26, 26, 0) 0%,
+      #431a1ac7 100%
+    ),
+    url(../../images/slider4.png);
+}
+//-------- Peojects Section Ends--------
+// ---------- About Company Section Starts------
+.about__company {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9rem;
+  padding: 15rem 13.04%;
+
+  &__img {
+    max-width: 590px;
+
+    img {
+      width: 100%;
+    }
+  }
+  &__content {
+    flex: 1 1 42rem;
+    margin-bottom: 5rem;
+
+    h3 {
+      color: $black;
+      font-weight: $bold;
+      font-size: $thirdHeadline;
+      line-height: $bgHeight;
+      margin-bottom: 37px;
+      @include mobile(mobile) {
+        font-size: 30px;
+      }
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+    }
+    p {
+      width: 60rem;
+      font-size: $aboutSize;
+      line-height: $aboutHeight;
+      font-weight: $medium;
+      color: $secondary;
+      margin-bottom: $mgbottom;
+      @include mobile(mobile) {
+        width: 30rem;
+        font-size: 14px;
+        font-weight: $bold;
+      }
+    }
+  }
+  .about {
+    border: 1px solid $primary;
+    color: $primary;
+
+    &:hover {
+      color: $white;
+      border: 1px solid $border;
+      background-color: $primary;
+      box-shadow: 1px 2px 1px 1px $border;
+    }
+  }
+}
+// ---------- About Company Section Ends------------
+//Footer
+.footer {
+  background-color: $secondary;
+  color: $white;
+
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8rem 13.04% 6.8rem 13.04%;
+
+    @include tablet(tablet) {
+      padding: 6rem 7%;
+    }
+
+    @include ForDesktopM(desktopS) {
+      padding: 6rem 5%;
+    }
+
+    @include desktop(desktop) {
+      padding: 6rem 10%;
+    }
+  }
+
+  &__company {
+    flex: 1;
+    margin-bottom: 4rem;
+
+    @include ForDesktopM(desktopS) {
+      margin-bottom: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      img {
+        max-width: 100px;
+        margin-right: 1rem;
+      }
+
+      .Logo__text {
+        font-size: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+
+    span {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    @include ForDesktopM(desktopS) {
+      flex-direction: row;
+      margin-bottom: 0;
+    }
+
+    span {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+
+      @include ForDesktopM(desktopS) {
+        margin-right: 3rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-size: 2rem;
+      color: $white;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,232 @@
+@import "./mediaqueries";
+
+// Buttons
+
+.btn {
+  display: inline-block;
+  padding: 9px 21px 9px 22px;
+  font-size: $smFont;
+  font-weight: $bold;
+  line-height: $smHeight;
+  color: $white;
+  border: 1px solid $btn-shadow;
+  border-radius: $btn-radius;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: $bg-light;
+    color: $primary;
+  }
+}
+
+#menu-btn {
+  font-size: 2.5rem;
+  color: $primary;
+  cursor: pointer;
+  display: none;
+  @include mobile(mobile) {
+    display: inline-block;
+  }
+}
+.active {
+  display: flex;
+
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    display: none;
+  }
+
+  .navbar .active {
+    display: block;
+    z-index: 10000;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .projects__heading {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    font-size: $thirdHeadline;
+    line-height: $bgHeight;
+    padding-right: 27.3rem;
+    padding-top: 5.5rem;
+    margin-bottom: 8.7rem;
+    @include mobile(mobile) {
+      padding-right: 5rem;
+      font-size: 20px;
+    }
+  }
+
+  // Slider Active
+  .projects__box__item.active {
+    border-bottom: 2px solid black;
+  }
+  .projects__box__slider {
+    padding-right: 30px;
+  }
+  .btn-slide {
+    width: 13.5rem;
+    display: inline-block;
+    padding: 9px 21px 9px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    margin-top: 19px;
+    background: transparent;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+      background-color: $bg-light;
+    }
+  }
+  .projects__box__item.checked::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40rem;
+    margin-left: 2rem;
+    height: 10px;
+    background-color: $primary;
+  }
+  .projects__card__nav {
+    cursor: pointer;
+  }
+
+  //Footer
+  .logo {
+    width: 207px;
+    gap: 25px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+    &__text {
+      text-transform: uppercase;
+      font-size: $logoSize;
+      line-height: $logoheight;
+    }
+    span {
+      font-size: 16px;
+    }
+  }
+  .footer-container {
+    &__social {
+      display: flex;
+      flex-direction: column;
+      gap: 4.2rem;
+      color: $white;
+      font-size: 18px;
+    }
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 5rem;
+      @include ForDesktopM(desktopS) {
+        display: none;
+      }
+      @include desktop(desktop) {
+        display: none;
+      }
+      @include mobile(mobile) {
+        display: none;
+      }
+      span {
+        &:hover {
+          color: $primary;
+          cursor: pointer;
+        }
+      }
+    }
+    &__icon {
+      a {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 90%;
+        color: $white;
+      }
+    }
+    form {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+  .navbar__search {
+    @include mobile(mobile) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    header {
+      .navbar_search {
+        display: none;
+      }
+    }
+  }
+
+  // Form of Footer
+
+  .footer-container__form form {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-container__company {
+    @include mobile(mobile) {
+      margin-bottom: 15px;
+    }
+  }
+  .form__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .form__inputBox {
+    width: calc(50% - 1rem);
+  }
+  .form__inputBox.l {
+    height: 120px;
+    width: calc(100% - 1rem);
+  }
+  .form__inputBox input {
+    width: 100%;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid $border;
+    border-radius: $form-radius;
+    color: $white;
+    font-size: 1.4rem;
+  }
+
+  .form__inputBox:last-child {
+    position: relative;
+  }
+
+  .form__inputBox:last-child input {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form__btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem 2rem;
+    background-color: $primary;
+    color: $white;
+    font-size: 1.4rem;
+
+    &:hover {
+      background-color: $white;
+      color: $primary;
+    }
+  }
+}
